@@ -36,7 +36,7 @@ jobs:
       run: 
        echo Tag:${{steps.step1.outputs.tag}}
        mvn -B package --file pom.xml
-       mvn release:update-versions 0.0.2-SNAPSHOT
+       
        
     outputs:    
         output1: ${{steps.step1.outputs.tag}}
@@ -54,7 +54,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: vijay1
+        args: ${{steps.step1.outputs.tag}}
     
     - uses: actions/checkout@v2
       with:
