@@ -34,7 +34,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: 
-       echo The result is ${{steps.step1.outputs.tag}}
+       echo Tag:${{steps.step1.outputs.tag}}
        mvn -B package --file pom.xml
        
     outputs:    
@@ -53,7 +53,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: Release ${{steps.step1.outputs.tag}} 
+        args: ${{steps.step1.outputs.tag}} vijay
     
     - uses: actions/checkout@v2
       with:
