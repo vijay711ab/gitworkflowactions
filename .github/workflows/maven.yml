@@ -42,19 +42,15 @@ jobs:
     needs:  build
     steps:  
     - uses: actions/checkout@master
-    - name: Show Tag
-    
+    - name: Show Tag    
       run: 
-       echo Tag is ${{steps.step1.outputs.tag}}        
-            
+       echo Tag is ${{needs.step1.outputs.output1}}     
     - name: Create a Release
       uses: elgohr/Github-Release-Action@master
-   
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: ${{steps.step1.outputs.tag}}
-
+        args: ${{needs.step1.outputs.output1}}
     
     - uses: actions/checkout@v2
       with:
@@ -64,4 +60,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
         WITH_V: true
-  
