@@ -43,7 +43,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: release create $(date +%Y%m%d%H%M%S)
+        args: ${{ outputs.tag }}
     
     - uses: actions/checkout@v2
       with:
