@@ -33,9 +33,14 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: 
+       echo The result is ${{steps.step1.outputs.tag}}
+       mvn -B package --file pom.xml
+       
     outputs:    
-        output1: ${{steps.step1.outputs.tag}}        
+        output1: ${{steps.step1.outputs.tag}}
+        
+        
       
   publish:
     runs-on: ubuntu-latest
