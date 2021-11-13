@@ -54,7 +54,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: ${{steps.step1.outputs.tag}} vijay
+        args: vijay1
     
     - uses: actions/checkout@v2
       with:
