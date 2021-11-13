@@ -36,6 +36,7 @@ jobs:
       run: 
        echo Tag:${{steps.step1.outputs.tag}}
        mvn -B package --file pom.xml
+       mvn release:update-versions 0.0.2-SNAPSHOT
        
     outputs:    
         output1: ${{steps.step1.outputs.tag}}
