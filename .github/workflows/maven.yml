@@ -13,12 +13,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:    
-      output1: ${{outputs.tag}}    
+      output1: ${{steps.step1.outputs.tag}}    
     steps: 
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
+      id: step1
       uses: anothrNick/github-tag-action@1.36.0
       env:
         WITH_V: true
