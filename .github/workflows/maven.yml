@@ -53,7 +53,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITFLOWTOKEN }}
       with:
-        args: ${{steps.step1.outputs.tag}} $(date} 
+        args: Release ${{steps.step1.outputs.tag}} 
     
     - uses: actions/checkout@v2
       with:
