@@ -32,7 +32,6 @@ jobs:
     - name: Build with Maven
       run: 
        echo Tag:${{steps.step1.outputs.tag}}
-       mvn clean install
        mvn --batch-mode release:update-versions -DdevelopmentVersion=0.0.2-SNAPSHOT
        mvn -B package --file pom.xml
     outputs:    
