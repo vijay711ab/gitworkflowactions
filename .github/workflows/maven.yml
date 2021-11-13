@@ -45,7 +45,7 @@ jobs:
       
   publish:
     runs-on: ubuntu-latest
-    name: Publish maven package
+    name: Publish Release
     needs:  build
     steps:  
     - uses: actions/checkout@master
